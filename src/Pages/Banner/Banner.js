@@ -2,8 +2,8 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div>
-            <img className='img-fluid mx-auto' src="https://i.ibb.co/xHmjvRY/Banner.png" alt="" />
+        <div className='text-center my-2'>
+            <img className='img-fluid' src="https://i.ibb.co/xHmjvRY/Banner.png" alt="" />
         </div>
     );
 };
