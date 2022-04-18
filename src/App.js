@@ -11,6 +11,7 @@ import RequireAuth from './Auth/RequireAuth/RequireAuth';
 import Register from './Pages/Register/Register';
 import Checkout from './Pages/Checkout/Checkout';
 import Blogs from './Pages/Blogs/Blogs';
+import Aboutme from './Pages/Aboutme/Aboutme';
 function App() {
   return (
     <div>
@@ -21,6 +22,7 @@ function App() {
         <Route path='/service/:serviceId' element={<ServiceDetail></ServiceDetail>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/aboutme' element={<Aboutme></Aboutme>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/checkout' element={

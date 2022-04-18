@@ -12,9 +12,9 @@ const Header = () => {
     }
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" sticky='top' bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" sticky='top' bg="" variant="dark" id='nav-color' style={{ backgroundColor: 'rgb(5, 5, 40)' }}>
                 <Container>
-                    <Navbar.Brand as={Link} to="/">Career Coach</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">Best Career Mentor</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -22,6 +22,7 @@ const Header = () => {
                             <Nav.Link as={Link} to="/About" className='text-white'>About</Nav.Link>
 
                             <Nav.Link as={Link} to="/Blogs" className='text-white'>Blogs</Nav.Link>
+                            <Nav.Link as={Link} to="/Aboutme" className='text-white'>About Me</Nav.Link>
 
 
                         </Nav>
