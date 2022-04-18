@@ -1,20 +1,26 @@
 import React, { useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Alert, Button, Form, Toast } from 'react-bootstrap';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
-    const [
-        signInWithEmailAndPassword, user, loading, error,
-    ] = useSignInWithEmailAndPassword(auth);
-    const navigate = useNavigate();
-    if (user) {
-        navigate('/about');
-    }
-
     const emailRef = useRef('')
     const passwordRef = useRef('')
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    let from = location.state?.from?.pathname || "/";
+    const [
+        signInWithEmailAndPassword, user, loading, error,
+    ] = useSignInWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
     const formHandleSubmit = event => {
         event.preventDefault();
@@ -25,6 +31,22 @@ const Login = () => {
 
     const navigateToRegister = event => {
         navigate('register')
+    }
+    const navigateToReset = async () => {
+        const email = emailRef.current.value;
+
+        await sendPasswordResetEmail(email);
+        toast('email sent')
+
+
+    }
+
+    let errorElement;
+    if (error) {
+        errorElement =
+            <div>
+                <p className='text-danger'>Error:{error?.message}</p>
+            </div>
     }
     return (
         <div className='container w-50 mx-auto'>
@@ -49,8 +71,15 @@ const Login = () => {
                     Submit
                 </Button>
             </Form>
+            {errorElement}
             <p>New User?<Link to='/register' className='text-primary text-decoration-none' onClick={navigateToRegister}>Register Now</Link></p>
+
+            <button to='/register' className='btn btn-link text-primary pe-auto text-decoration-none' onClick={navigateToReset}>Reset Password</button>
+
+            {/* <SocialLogin></SocialLogin> */}
+            <ToastContainer />
         </div>
+
     );
 };
 

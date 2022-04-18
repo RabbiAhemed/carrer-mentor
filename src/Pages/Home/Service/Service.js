@@ -9,7 +9,7 @@ const Service = ({ service }) => {
     }
 
     return (
-        <div className='card' style={{ border: '2px solid red' }}>
+        <div className='card' style={{ border: '2px solid red' }} id='service'>
 
             <img className='w-50 h-50 mx-auto img-fluid' src={image} alt="" />
             <h4 style={{ fontFamily: 'Bai Jamjuree' }} className='mx-auto'>{name}</h4>
