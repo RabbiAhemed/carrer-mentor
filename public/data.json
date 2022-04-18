@@ -2,21 +2,21 @@
     {
         "id": 1,
         "name": "EMPLOYABILITY ENHANCEMENT",
-        "image": "https://images.unsplash.com/photo-1431068799455-80bae0caf685?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "image": "https://i.ibb.co/vz23P17/employability.png",
         "price": 1000,
         "details": "The head of every workplace expects employability from each of the members of his/her team. Most of employees have no idea about this very important term employability. I enhance the Employability of the professionals or newly graduated students who wants to enter the workplace through the hand holding process."
     },
     {
         "id": 2,
         "name": "DIGITAL TRANSFORMATION",
-        "image": "https://images.unsplash.com/photo-1431068799455-80bae0caf685?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "image": "https://i.ibb.co/WKNBMt3/digital-Transformation.png",
         "price": 1000,
         "details": "Professionally we need to be aware of information technology. That requires us to be digitally transformed. But how can we digitally transform ourselves? I teach young people how to solve our daily problems with the necessary digital tools through the hand holding process."
     },
     {
         "id": 3,
         "name": "SOFT SKILLS EXCELLENCE",
-        "image": "https://images.unsplash.com/photo-1431068799455-80bae0caf685?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "image": "https://i.ibb.co/yfkWDXL/soft-skils.png",
         "price": 1000,
         "details": "Life means Soft Skills. But many of us take this very important Soft Skills Very Softly. And this is one of the reasons why we are far from the desired success in our career. I follow Participative Approach and do special mentoring of young people on Soft Skills."
     }

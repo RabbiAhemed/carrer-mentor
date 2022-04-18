@@ -2,19 +2,21 @@ import React from 'react';
 import './Service.css'
 import { useNavigate } from 'react-router-dom';
 const Service = ({ service }) => {
-    const { id, name, image, details } = service;
+    const { id, name, image, details, price } = service;
     const navigate = useNavigate();
     const navigateToServiceDetail = () => {
         navigate(`/service/${id}`);
     }
 
     return (
-        <div className='bg-info' style={{ border: '2px solid red' }}>
-            <h4 style={{ fontFamily: 'Bai Jamjuree' }}>{name}</h4>
-            <img className='img-fluid' src={image} alt="" />
-            <h3>Price:</h3>
-            <p>{details}</p>
-            <button onClick={() => navigateToServiceDetail(id)} className='bg-success'>Click</button>
+        <div className='card' style={{ border: '2px solid red' }}>
+
+            <img className='w-50 h-50 mx-auto img-fluid' src={image} alt="" />
+            <h4 style={{ fontFamily: 'Bai Jamjuree' }} className='mx-auto'>{name}</h4>
+
+            <p className='px-3'>{details}</p>
+            <h5 className='px-3'>Price: {price}</h5>
+            <button onClick={() => navigateToServiceDetail(id)} className='bg-info text-white fw-bold mx-5 my-3 py-2' style={{ fontSize: '18px' }}>Checkout</button>
         </div>
     );
 };
