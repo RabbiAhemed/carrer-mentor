@@ -14,8 +14,9 @@ const Aboutme = () => {
                 </div>
             </div>
             <div className='mx-5'>
-                <h2 style={{ fontStyle: "italic" }}>My goal is to gain confidence and become a successful junior web developer using my potential, and express my skills for growth and fame.
-                </h2>
+                <h2 style={{ fontStyle: 'italic' }}>Goal</h2>
+                <h4 style={{ fontStyle: "italic" }}>My goal is to gain confidence and become a successful junior web developer using my potential, and express my skills for growth and fame.I will stick to this path achieve this goal whatever may come.I believe in my ability and willpower and will continue so.Hope i can achieve my dream with the help of programing hero community.Enjoying the journey so far and i wish it will be same for the upcoming days in future.
+                </h4>
             </div>
         </div >
     );
