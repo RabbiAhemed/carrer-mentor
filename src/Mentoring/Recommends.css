@@ -1,0 +1,13 @@
+#title {
+    font-family: 'Bai Jamjuree';
+    font-weight: bolder;
+
+}
+
+.comments {
+    background-color: aliceblue;
+    border: 1px solid aquamarine;
+    border-radius: 1%;
+    margin: 2% 5%;
+    padding: 1%;
+}

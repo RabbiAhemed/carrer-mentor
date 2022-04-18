@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { Alert, Button, Form, Toast } from 'react-bootstrap';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 import auth from '../../firebase.init';
-import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('')
@@ -13,12 +13,14 @@ const Login = () => {
     const location = useLocation();
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [signInWithGoogle, googleUser, loading2, error2] = useSignInWithGoogle(auth);
+
     let from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword, user, loading, error,
     ] = useSignInWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    if (user) {
+    if (user || googleUser) {
         navigate(from, { replace: true });
     }
 
@@ -42,10 +44,10 @@ const Login = () => {
     }
 
     let errorElement;
-    if (error) {
+    if (error || error2) {
         errorElement =
             <div>
-                <p className='text-danger'>Error:{error?.message}</p>
+                <p className='text-danger'>{error?.message}</p>
             </div>
     }
     return (
@@ -75,8 +77,15 @@ const Login = () => {
             <p>New User?<Link to='/register' className='text-primary text-decoration-none' onClick={navigateToRegister}>Register Now</Link></p>
 
             <button to='/register' className='btn btn-link text-primary pe-auto text-decoration-none' onClick={navigateToReset}>Reset Password</button>
-
-            {/* <SocialLogin></SocialLogin> */}
+            <div className='d-flex align-items-center'>
+                <div style={{ height: '1px' }} className='bg-primary w-50'></div >
+                <p className='mt-2 px-2'>or</p>
+                <div style={{ height: '1px' }} className='bg-primary w-50'></div>
+            </div>
+            {errorElement}
+            <div>
+                <button onClick={() => signInWithGoogle()} className='btn btn-primary w-50 mx-auto'>Google Sign In</button>
+            </div>
             <ToastContainer />
         </div>
 
